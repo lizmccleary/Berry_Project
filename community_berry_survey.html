@@ -62,10 +62,10 @@
             padding: 10px;
             margin-top: 5px;
             border: 1px solid #ced4da;
-            font-family: var(--font-family);
             border-radius: 5px;
             box-sizing: border-box;
-            font-size: 18px;
+            font-size: 16px;
+            font-family: var(--font-family);
         }
 
         input[type="datetime-local"] {
@@ -111,41 +111,175 @@
             margin-top: 20px;
             color: var(--secondary-color);
         }
-      .form-group input[type="file"] {
-    /* Hide the default file input button */
-    display: none;
-}
 
-.upload-box {
-    /* Style for the upload box */
-    border: 2px dashed #ced4da; /* Dashed border */
-    padding: 20px; /* Add padding for better appearance */
-    cursor: pointer; /* Show pointer cursor when hovering */
-    text-align: center; /* Center the text */
-}
+        .plot_info input[type="file"] {
+            display: none;
+        }
 
-.upload-box:hover {
-    border-color: #007bff; /* Change border color on hover */
-}
+        .upload-box {
+            border: 2px dashed #ced4da;
+            padding: 20px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .upload-box:hover {
+            border-color: #007bff;
+        }
+
+        .berry-species {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .berry-species label {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .berry-species input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
     </style>
 </head>
 <body>
+  
 <div class="container">
     <h1>Community Harvest Survey</h1>
     <form id="survey-form">
-        <div class="form-group">
-            <label for="description">Description:</label>
-            <p>Describe the plant observed/harvested, how it will be used, condition it was found in, relative abundance, how much was harvested, etc.</p>
-            <textarea id="description" name="description" rows="4" required></textarea>
-        </div>
-        <div class="form-group">
+        <div class="plot_info">
+            <h2>Plot Information:</h2>
+            <label for="regions">Select your region:</label>
+            <select name="regions" id="region">
+                <option value="nunavut">Nunavut</option>
+                <option value="nunavik">Nunavik</option>
+                <option value="nunatsiavut">Nunatsiavut</option>
+                <option value="northwest territories">Northwest Territories</option>
+            </select>
+          
+            <label for="sites">Select your site:</label>
+            <select name="sites" id="site">
+                <option value="alexandra fiord">Alexandra Fiord</option>
+                <option value="baker lake">Baker Lake</option>
+                <option value="bylot island">Bylot Island</option>
+                <option value="daring lake">Daring Lake</option>
+                <option value="iqaluit">Iqaluit</option>
+                <option value="kangiqsujuaq">Kangiqsujuaq</option>
+                <option value="kangirsualujjuaq">Kangirsualujjuaq</option>
+                <option value="kugluktuk">Kugluktuk</option>
+                <option value="nain">Nain</option>
+                <option value="pangirtung">Pangirtung</option>
+                <option value="pond inlet/mittimatalik">Pond Inlet/Mittimatalik</option>
+                <option value="saglek">Saglek</option>
+                <option value="salluit">Salluit</option>
+                <option value="umiujaq">Umiujaq</option>
+            </select> 
+          
+            <label for="plots">Select your plot:</label>
+            <select name="plots" id="plot">
+                <option value="af">AF</option>
+                <option value="bl1">BL1</option>
+                <option value="bl2">BL2</option>
+                <option value="bl3">BL3</option>
+                <option value="blc">BLC</option>      
+                <option value="blo">BLO</option> 
+                <option value="by">BY</option>
+                <option value="dl1">DL1</option>
+                <option value="dl2">DL2</option>
+                <option value="dl3">DL3</option>
+                <option value="iq">IQ</option>
+                <option value="kj">KJ</option>
+                <option value="kjc">KJC</option>
+                <option value="kjo">KJO</option>
+                <option value="kjjc1">KJJC1</option>
+                <option value="kjjo1">KJJO1</option>
+                <option value="kjjc2">KJJC2</option>
+                <option value="kjjo2">KJJO2</option>
+                <option value="kjj1">KJJ1</option>
+                <option value="kjj2">KJJ2</option>
+                <option value="kjj3">KJJ3</option>
+                <option value="kjj4">KJJ4</option>
+                <option value="ku1">KU1</option>
+                <option value="ku2">KU2</option>
+                <option value="ku3">KU3</option>
+                <option value="ku4">KU4</option>
+                <option value="ku5">KU5</option>
+                <option value="ku6">KU6</option>
+                <option value="ku7">KU7</option>
+                <option value="na1">NA1</option>
+                <option value="na2">NA2</option>      
+                <option value="na3">NA3</option>
+                <option value="na4">NA4</option>
+                <option value="na5">NA5</option>
+                <option value="pa1">PA1</option>
+                <option value="pa2">PA2</option>
+                <option value="pa3">PA3</option>
+                <option value="pa4">PA4</option>
+                <option value="po1">PO1</option>
+                <option value="po2">PO2</option>
+                <option value="po3">PO3</option>
+                <option value="sag1">SAG1</option>
+                <option value="sag2">SAG2</option>
+                <option value="sag3">SAG3</option>
+                <option value="sag4">SAG4</option>
+                <option value="sag5">SAG5</option>
+                <option value="sag6">SAG6</option>
+                <option value="sal">SAL</option>
+                <option value="um1">UM1</option>
+                <option value="um2">UM2</option> 
+                <option value="um3">UM3</option> 
+            </select> 
+          
+            <p>Number of quadrats in the plot</p>
+            <textarea id="quadrats" name="quadrat" rows="1" cols="50"></textarea> 
+          
+            <p>Name of the person who collected the data/berries</p>
+            <textarea id="collected" name="collect" rows="1" cols="50"></textarea> 
+          
+            <p>Name of the person who entered the data/berries</p>
+            <textarea id="entered" name="enter" rows="1" cols="50"></textarea>
+            <br><br> 
+   
+            <label for="berry-species">Select which berries were harvested</label>
+            <div class="berry-species">
+                <label for="species1">
+                    <input type="checkbox" id="species1" name="species1" value="Blueberry">
+                    Blueberry
+                </label>
+                <label for="species2">
+                    <input type="checkbox" id="species2" name="species2" value="Cranberry">
+                    Cranberry
+                </label>
+                <label for="species3">
+                    <input type="checkbox" id="species3" name="species3" value="Crowberry">
+                    Crowberry
+                </label>
+                <label for="species4">
+                    <input type="checkbox" id="species4" name="species4" value="Cloudberry">
+                    Cloudberry
+                </label>
+            </div>
+          <br><br> 
+
             <label for="observation-time">Time of Observation:</label>
             <p>Please record when you harvested.</p>
             <input type="datetime-local" id="observation-time" name="observation-time" required>
-        </div>
+
+          <br><br> 
+          <label for="quad_size">Quadrat Size</label> 
+          <input type="radio" id="quad_25" name="quad_size" value="25cm x 25cm" class="checkbox-round" />
+    <label for="quad_25">25cm x 25cm</label>
+    <input type="radio" id="quad_70" name="quad_size" value="70cm x 70cm" class="checkbox-round" />
+    <label for="quad_70">70cm x 70cm</label>
+      <br><br> 
+      
         <div class="form-group">
             <label for="observation-location">Location of Observation:</label>
-            <p>Drop a pin or draw a polygon around the harvesting location.</p>
+            <p>Drop a pin on the harvesting location.</p>
             <div id="map"></div>
             <input type="text" id="location-coordinates" name="location-coordinates" readonly required>
         </div>
@@ -155,49 +289,42 @@
             <textarea id="notes" name="notes" rows="4"></textarea>
         </div>
         <div class="form-group">
-    <label for="picture">Upload Picture:</label>
-    <p>Upload a picture of the species in this observation.</p>
-    <div class="upload-box" id="picture-box">
-        <i class="fas fa-cloud-upload-alt"></i> <!-- Icon for upload -->
-        <span>Drag &amp; Drop or Click to Upload</span> <!-- Instruction text -->
-        <input type="file" id="picture" name="picture" accept="image/*">
-    </div>
-</div>
+            <label for="picture">Upload Picture:</label>
+            <p>Upload a picture of the species in this observation.</p>
+            <div class="upload-box" id="picture-box">
+                <i class="fas fa-cloud-upload-alt"></i> 
+                <span>Drag &amp; Drop or Click to Upload</span>
+                <input type="file" id="picture" name="picture" accept="image/*">
+            </div>
+        </div>
         <button type="submit"><i class="fas fa-paper-plane"></i> Submit</button>
     </form>
     <div class="form-footer">
-      
-        <p>Thank you for your submission! All harvest entries will be stored in the Squamish Nations database, accessible only by members and displayed on the interactive Squamish Plants map.</p>
+        <p>Thank you for your submission!</p>
     </div>
 </div>
 
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.js"></script>
-
-  
 <script>
-    // Replace with your Mapbox access token
     mapboxgl.accessToken = 'pk.eyJ1IjoibGl6bWNjbGVhcnkiLCJhIjoiY2x3amt0dHVkMG4wZzJrbDh6bTF5djV2cyJ9.TeDF2xIPvCR4wmiTdEju8w';
 
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/lizmccleary/clx3odt4e07mr01ql2avqboc6',
-        center: [-122.9495, 49.957], // Coordinates for Garibaldi Provincial Park, BC
-        zoom: 9 // Adjusted zoom level for better visibility
+        center: [-82.331481, 59.433247],
+        zoom: 3.5
     });
 
-     var draw = new MapboxDraw({
+    var draw = new MapboxDraw({
         displayControlsDefault: false,
         controls: {
             point: true,
-            polygon: true,
             trash: true
         }
     });
-  
-     // Add zoom and rotation controls to the map.
+
     map.addControl(new mapboxgl.NavigationControl());
-  
     map.addControl(draw);
 
     map.on('draw.create', updateCoordinates);
@@ -223,4 +350,3 @@
 
 </body>
 </html>
-
